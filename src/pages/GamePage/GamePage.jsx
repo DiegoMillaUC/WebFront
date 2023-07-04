@@ -7,7 +7,7 @@ import pieceImage2 from './images/piece_2.png';
 import pieceImage3 from './images/piece_3.png';
 import pieceImage4 from './images/piece_4.png';
 import { AuthContext } from "../Auth/AuthContext";
-import API_URL from "../config";
+import API_URL from "../../config";
 
 const LudoGame = () => {
     
