@@ -16,7 +16,7 @@ function SignupPage() {
 
         console.log("GHJ");
 
-        axios.post('https://graceful-maamoul-7aee5e.netlify.app/auth/signup', 
+        axios.post('https://graceful-maamoul-7aee5e.netlify.app:5000/auth/signup', 
         {
             mail: mail,
             username: username, 

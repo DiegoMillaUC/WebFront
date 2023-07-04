@@ -7,7 +7,7 @@ function UserCheck() {
 
     const config = {
         'method' : 'get',
-        'url' : 'https://graceful-maamoul-7aee5e.netlify.app/scope/protecteduser',
+        'url' : 'https://graceful-maamoul-7aee5e.netlify.app:5000/scope/protecteduser',
         'headers' : {
             'Authorization' : 'Bearer ${token}'
         }
