@@ -7,6 +7,7 @@ import pieceImage2 from './images/piece_2.png';
 import pieceImage3 from './images/piece_3.png';
 import pieceImage4 from './images/piece_4.png';
 import { AuthContext } from "../Auth/AuthContext";
+import API_URL from "../config";
 
 const LudoGame = () => {
     
@@ -24,7 +25,7 @@ const LudoBoard = () => {
 
   const config = {
     'method' : 'get',
-    'url' : 'https://graceful-maamoul-7aee5e.netlify.app:5000/scope/protecteduser',
+    'url' : `${API_URL}/scope/protecteduser`,
     'headers' : {
         'Authorization' : 'Bearer ' + token
     }
@@ -55,7 +56,7 @@ const LudoBoard = () => {
     }, [])
 
   useEffect(() => {
-        axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/games/last/game`)
+        axios.get(`${API_URL}/games/last/game`)
         .then(response => {
             setGameId(parseInt(response.data['id']));
         })
@@ -279,7 +280,7 @@ const LudoBoard = () => {
   }; 
 
   const getPositions = () => {
-    axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/pieces/positions/all`)
+    axios.get(`${API_URL}/pieces/positions/all`)
       .then(response => {
         setPiecesPositions(response.data);   
         setIsLoading(false);
@@ -292,9 +293,9 @@ const LudoBoard = () => {
 
 
   const getGameInfo = () => {
-    axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/games/last/game`)
+    axios.get(`${API_URL}/games/last/game`)
         .then(response => {
-            axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/${parseInt(response.data['id'])}`)
+            axios.get(`${API_URL}/${parseInt(response.data['id'])}`)
                 .then(response => {
                     setGameInfo(response.data);
                     if (response.data.turn !== turn){
@@ -314,7 +315,7 @@ const LudoBoard = () => {
     };
 
     useEffect(() => {
-        axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/${gameId}/${userId}`)
+        axios.get(`${API_URL}/${gameId}/${userId}`)
         .then(response => {
             setPlayer(response.data);
         })
@@ -350,18 +351,18 @@ const LudoBoard = () => {
     }
 
     const handleClick1 = (event) => {
-        axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/games/last/game`)
+        axios.get(`${API_URL}/games/last/game`)
             .then(response => {
-                axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/games/${parseInt(response.data['id'])}`)
+                axios.get(`${API_URL}/games/${parseInt(response.data['id'])}`)
                     .then(response2 => {
                         setGameInfo(response.data);
                         if (response2.data.turn === turn){
-                            axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/games/dice`)
+                            axios.get(`${API_URL}/games/dice`)
                                 .then(response3 => {
                                     setPlayed(true);
                                     var num = response3.data;
                                     setnumMoves(num);
-                                    axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/games/${parseInt(response.data['id'])}/round/${num}`)
+                                    axios.get(`${API_URL}/games/${parseInt(response.data['id'])}/round/${num}`)
                                         .then(response4 => {
                                             setPosibleMoves(response4.data);
                                         })
@@ -388,9 +389,9 @@ const LudoBoard = () => {
 
 
     const handleClick = (event) => {
-        axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/games/last/game`)
+        axios.get(`${API_URL}/games/last/game`)
             .then(response => {
-                axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/games/${parseInt(response.data['id'])}`)
+                axios.get(`${API_URL}/games/${parseInt(response.data['id'])}`)
                     .then(response => {
                         setGameInfo(response.data);
                         if (response.data.turn !== turn){
@@ -411,10 +412,10 @@ const LudoBoard = () => {
                         console.log('Turno:', myTurn, turn, response.data.turn);
                         console.log(gameId);
                         if (response.data.turn === turn){
-                            axios.post(`https://graceful-maamoul-7aee5e.netlify.app:5000/games/${gameId}/move/${(gameId-1)*16+parseInt(id)}/${numMoves}`)
+                            axios.post(`${API_URL}/games/${gameId}/move/${(gameId-1)*16+parseInt(id)}/${numMoves}`)
                             .then(response => {
                                 console.log(response.data);
-                                axios.get(`https://graceful-maamoul-7aee5e.netlify.app:5000/pieces/positions/all`)
+                                axios.get(`${API_URL}/pieces/positions/all`)
                                     .then(response => {
                                         setPiecesPositions(response.data);  
                                         //console.log(piecesPositions); 

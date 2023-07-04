@@ -11,7 +11,7 @@ function WaitingPage() {
     const {token} = useContext(AuthContext);
 
     async function Leavewatingroom (){
-        var url = 'https://graceful-maamoul-7aee5e.netlify.app:5000/waitingrooms/leave';
+        var url = `${API_URL}/waitingrooms/leave`;
         const requestOptions = { //Definimos Post
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -28,7 +28,7 @@ function WaitingPage() {
 
     const config = {
         'method' : 'get',
-        'url' : 'https://graceful-maamoul-7aee5e.netlify.app:5000/scope/protecteduser',
+        'url' : `${API_URL}/scope/protecteduser`,
         'headers' : {
             'Authorization' : 'Bearer ' + token
         }
@@ -58,7 +58,7 @@ function WaitingPage() {
 
 
     async function Checkplayers(){
-        var url = 'https://graceful-maamoul-7aee5e.netlify.app:5000/waitingrooms/full';
+        var url = `${API_URL}/waitingrooms/full`;
         const requestOptions = { //Definimos Post
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
