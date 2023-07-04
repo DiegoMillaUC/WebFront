@@ -8,7 +8,7 @@ function Navbar() {
 
     const config = {
         'method' : 'get',
-        'url' : 'http://localhost:5000/scope/protecteduser',
+        'url' : 'https://graceful-maamoul-7aee5e.netlify.app/scope/protecteduser',
         'headers' : {
             'Authorization' : 'Bearer ' + token
         }
