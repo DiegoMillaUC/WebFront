@@ -2,7 +2,8 @@ import React, {useState, useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
 import './signup.css';
 import { AuthContext } from "../Auth/AuthContext";
-import axios from "axios"
+import axios from "axios";
+import API_URL from "../../config";
 
 function SignupPage() {
     const {token, setToken} = useContext(AuthContext);

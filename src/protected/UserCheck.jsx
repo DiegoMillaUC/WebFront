@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../Auth/AuthContext";
 import axios from "axios";
+import API_URL from "../config";
 
 function UserCheck() {
     const {token} = useContext(AuthContext);

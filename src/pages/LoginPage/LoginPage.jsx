@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import './login.css';
 import axios from 'axios';
 import { AuthContext } from "../Auth/AuthContext";
+import API_URL from "../../config";
 
 function LoginPage() {
     const {token, setToken} = useContext(AuthContext);

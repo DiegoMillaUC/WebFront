@@ -5,6 +5,7 @@ import { AuthContext } from "../Auth/AuthContext";
 import axios from "axios";
 //import { Prompt } from 'react-router';
 //import {useHistory} from 'react-router-dom';
+import API_URL from "../../config";
 
 function WaitingPage() {
 
