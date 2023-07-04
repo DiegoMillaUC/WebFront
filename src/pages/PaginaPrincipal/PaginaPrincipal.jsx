@@ -14,7 +14,7 @@ function PaginaPrincipal() {
 
     const config = {
         'method' : 'get',
-        'url' : 'http://localhost:5000/scope/protecteduser',
+        'url' : 'https://graceful-maamoul-7aee5e.netlify.app/scope/protecteduser',
         'headers' : {
             'Authorization' : 'Bearer ' + token
         }
@@ -36,7 +36,7 @@ function PaginaPrincipal() {
     console.log(logged);
     async function JoinWaitingRoom() {
         //user id
-        var url = 'http://localhost:5000/waitingrooms/join';
+        var url = 'https://graceful-maamoul-7aee5e.netlify.app/waitingrooms/join';
         const requestOptions = { //Definimos Post
             method: 'POST',
             headers: {'Content-Type': 'application/json'},

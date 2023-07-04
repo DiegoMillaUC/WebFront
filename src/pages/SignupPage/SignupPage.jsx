@@ -16,7 +16,7 @@ function SignupPage() {
 
         console.log("GHJ");
 
-        axios.post('http://localhost:5000/auth/signup', 
+        axios.post('https://graceful-maamoul-7aee5e.netlify.app/auth/signup', 
         {
             mail: mail,
             username: username, 

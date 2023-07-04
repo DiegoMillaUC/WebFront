@@ -14,7 +14,7 @@ function LoginPage() {
 
         console.log("GHJ");
 
-        axios.post('http://localhost:5000/auth/login', 
+        axios.post('https://graceful-maamoul-7aee5e.netlify.app/auth/login', 
         {
             mail,
             password
