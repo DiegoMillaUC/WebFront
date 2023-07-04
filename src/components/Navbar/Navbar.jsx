@@ -2,13 +2,14 @@ import React, {useState, useEffect, useContext} from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../pages/Auth/AuthContext";
 import axios from "axios"
+import API_URL from "../../config";
 
 function Navbar() {
     const {token} = useContext(AuthContext);
 
     const config = {
         'method' : 'get',
-        'url' : 'https://graceful-maamoul-7aee5e.netlify.app:5000/scope/protecteduser',
+        'url' : `${API_URL}/scope/protecteduser`,
         'headers' : {
             'Authorization' : 'Bearer ' + token
         }
